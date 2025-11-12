@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Department extends Model
 {
-    protected $primaryKey = 'departmen_id';
-    protected $guard = ['departmen_id'];
+    protected $primaryKey = 'department_id';
+    protected $guarded = ['department_id'];
 
     public function positions()
     {
