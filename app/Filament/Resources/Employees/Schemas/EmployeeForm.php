@@ -12,13 +12,13 @@ class EmployeeForm
     {
         return $schema
             ->components([
-                TextInput::make('name')
+                Select::make('user_id')
+                    ->label('Employee Name')
+                    ->relationship('user', 'name', fn ($query) =>
+                                    $query->where('role', 'employee')
+                    )
                     ->required(),
                 TextInput::make('address')
-                    ->required(),
-                TextInput::make('email')
-                    ->label('Email address')
-                    ->email()
                     ->required(),
                 Select::make('department_id')
                     ->label('Department')
