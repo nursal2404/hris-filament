@@ -29,6 +29,7 @@ class AttendanceResource extends Resource
     public static function table(Table $table): Table
     {
         return AttendancesTable::configure($table);
+        
     }
 
     public static function getRelations(): array

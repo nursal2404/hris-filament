@@ -27,7 +27,16 @@ class AttendancesTable
                     ->time()
                     ->sortable(),
                 TextColumn::make('status')
-                    ->badge(),
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'present' => 'success', 
+                        'ongoing' => 'warning', 
+                        'absent' => 'danger',   
+                        'leave' => 'info',      
+                        default => 'gray',
+                    })
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
